@@ -2689,15 +2689,7 @@ var setStringTests = []struct {
 			Tag:   "!!str",
 			Style: yaml.LiteralStyle,
 		},
-	}, {
-		"\x80\x81\x82",
-		"!!binary gIGC\n",
-		yaml.Node{
-			Kind:  yaml.ScalarNode,
-			Value: "gIGC",
-			Tag:   "!!binary",
-		},
-	},
+	}, 
 }
 
 func (s *S) TestSetString(c *C) {

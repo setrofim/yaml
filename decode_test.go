@@ -633,13 +633,13 @@ var unmarshalTests = []struct {
 	// Binary data.
 	{
 		"a: !!binary gIGC\n",
-		map[string]string{"a": "\x80\x81\x82"},
+		map[string][]byte{"a": []byte{0x80, 0x81, 0x82}},
 	}, {
 		"a: !!binary |\n  " + strings.Repeat("kJCQ", 17) + "kJ\n  CQ\n",
-		map[string]string{"a": strings.Repeat("\x90", 54)},
+		map[string][]byte{"a": bytes.Repeat([]byte{0x90}, 54)},
 	}, {
 		"a: !!binary |\n  " + strings.Repeat("A", 70) + "\n  ==\n",
-		map[string]string{"a": strings.Repeat("\x00", 52)},
+		map[string][]byte{"a": bytes.Repeat([]byte{0x00}, 52)},
 	},
 
 	// Issue #39.
